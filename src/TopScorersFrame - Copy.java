@@ -1,7 +1,16 @@
-import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Font;
 import java.util.ArrayList;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableModel;
 
 public class TopScorersFrame extends JFrame {
 
@@ -11,6 +20,8 @@ public class TopScorersFrame extends JFrame {
     public TopScorersFrame() {
         playerService = new PlayerService();
 
+
+        //nambahin tampilan
         // ── Pengaturan JFrame ──────────────────────────────
         setTitle("Top 5 Scorer");
         setSize(520, 230);
@@ -35,6 +46,8 @@ public class TopScorersFrame extends JFrame {
             }
         };
 
+        //TODO
+
         // Ambil Top 5 dari database
         ArrayList<Player> topPlayers = playerService.getTopFiveScorers();
 
@@ -50,6 +63,9 @@ public class TopScorersFrame extends JFrame {
                 p.getDraws()
             });
         }
+
+
+        //tampilan
 
         table = new JTable(model);
         table.setRowHeight(24);

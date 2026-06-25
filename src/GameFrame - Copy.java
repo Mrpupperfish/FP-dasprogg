@@ -1,5 +1,15 @@
-import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.GridLayout;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 public class GameFrame extends JFrame {
 
@@ -69,56 +79,36 @@ public class GameFrame extends JFrame {
         add(mainPanel);
     }
 
-    // =========================================================
-    // HANDLE PLAYER MOVE
-    // Dipanggil tiap kali pemain klik tombol papan.
-    // =========================================================
+
+    //TODO
+   
     private void handlePlayerMove(int index) {
 
-        // 1. Coba buat move pemain
         boolean moved = gameLogic.makeMove(index, 'X');
-        if (!moved) return; // cell sudah terisi, abaikan klik
+        if (!moved) return;
 
-        // 2. Update tampilan tombol
         buttons[index].setText("X");
         buttons[index].setForeground(Color.BLUE);
         buttons[index].setEnabled(false);
 
-        // 3. Cek apakah pemain menang
-        if (gameLogic.checkWinner('X')) {
-            finishGame("WIN");
-            return;
-        }
+        if (gameLogic.checkWinner('X')) { finishGame("WIN");  return; }
+        if (gameLogic.isDraw())         { finishGame("DRAW"); return; }
 
-        // 4. Cek seri setelah move pemain
-        if (gameLogic.isDraw()) {
+        // Komputer move
+        int compIndex = gameLogic.computerMove();
+        
+        // Tambahan: kalau return -1 berarti tidak ada cell kosong
+        if (compIndex == -1) {
             finishGame("DRAW");
             return;
         }
 
-        // 5. Update status label
-        lblStatus.setText("Komputer sedang berpikir...");
-
-        // 6. Move komputer
-        int compIndex = gameLogic.computerMove();
         buttons[compIndex].setText("O");
         buttons[compIndex].setForeground(Color.RED);
         buttons[compIndex].setEnabled(false);
 
-        // 7. Cek apakah komputer menang
-        if (gameLogic.checkWinner('O')) {
-            finishGame("LOSE");
-            return;
-        }
-
-        // 8. Cek seri setelah move komputer
-        if (gameLogic.isDraw()) {
-            finishGame("DRAW");
-            return;
-        }
-
-        // 9. Lanjut main
-        lblStatus.setText("Giliran kamu! Klik cell mana saja.");
+        if (gameLogic.checkWinner('O')) { finishGame("LOSE"); return; }
+        if (gameLogic.isDraw())         { finishGame("DRAW"); }
     }
 
     // =========================================================
@@ -126,6 +116,8 @@ public class GameFrame extends JFrame {
     // Dipanggil saat game selesai (WIN / LOSE / DRAW).
     // Update DB, tampilkan pesan, kembali ke menu.
     // =========================================================
+
+
     private void finishGame(String result) {
 
         // Disable semua tombol agar tidak bisa diklik lagi

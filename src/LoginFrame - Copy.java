@@ -16,14 +16,17 @@ public class LoginFrame extends JFrame {
     public LoginFrame() {
         playerService = new PlayerService();
 
-        // ── Pengaturan JFrame ──────────────────────────────
+        //diEDIT
+
+
+        // Pengaturan JFrame
         setTitle("Tic-Tac-Toe - Login");
         setSize(400, 250);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);           // muncul di tengah layar
         setResizable(false);
 
-        // ── Layout utama ───────────────────────────────────
+        // Layout utama
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout(10, 10));
         mainPanel.setBorder(BorderFactory.createEmptyBorder(20, 30, 20, 30));
@@ -56,9 +59,15 @@ public class LoginFrame extends JFrame {
 
         add(mainPanel);
 
-        // ── Action Listener Tombol Login ───────────────────
+
+
+
+        
+
+        // Action Listener Tombol Login 
         btnLogin.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                //TODO
 
                 String username = txtUsername.getText().trim();
                 String password = new String(txtPassword.getPassword()).trim();

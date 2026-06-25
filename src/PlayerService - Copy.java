@@ -3,7 +3,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
-
+//sama
 public class PlayerService {
 
     // LOGIN
@@ -36,6 +36,7 @@ public class PlayerService {
     }
 
     // UPDATE STATISTIK
+
     // Dipanggil setelah game selesai.
     // result harus "WIN", "LOSE", atau "DRAW"
 
@@ -101,11 +102,11 @@ public class PlayerService {
         return list;
     }
 
-    // =========================================================
+    //
     // GET PLAYER BY ID
     // Dipakai untuk refresh data player dari DB
     // (contoh: sebelum tampilkan StatisticsFrame)
-    // =========================================================
+    // 
     public Player getPlayerById(int id) {
         String sql = "SELECT * FROM players WHERE id = ?";
         try {

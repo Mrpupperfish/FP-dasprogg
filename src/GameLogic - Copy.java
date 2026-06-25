@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 public class GameLogic {
@@ -41,14 +42,14 @@ public class GameLogic {
     // =========================================================
     public boolean checkWinner(char symbol) {
         int[][] patterns = {
-            {0, 1, 2}, // baris atas
-            {3, 4, 5}, // baris tengah
-            {6, 7, 8}, // baris bawah
-            {0, 3, 6}, // kolom kiri
-            {1, 4, 7}, // kolom tengah
-            {2, 5, 8}, // kolom kanan
-            {0, 4, 8}, // diagonal kiri-atas ke kanan-bawah
-            {2, 4, 6}  // diagonal kanan-atas ke kiri-bawah
+            {0, 1, 2}, 
+            {3, 4, 5}, 
+            {6, 7, 8}, 
+            {0, 3, 6}, 
+            {1, 4, 7}, 
+            {2, 5, 8}, 
+            {0, 4, 8}, 
+            {2, 4, 6}  
         };
 
         for (int i = 0; i < patterns.length; i++) {
@@ -62,11 +63,7 @@ public class GameLogic {
         return false;
     }
 
-    // =========================================================
-    // IS DRAW
-    // Return true kalau semua cell sudah terisi (tidak ada ' ').
-    // Dipanggil setelah checkWinner, jadi kalau ini true = seri.
-    // =========================================================
+    
     public boolean isDraw() {
         for (int i = 0; i < board.length; i++) {
             if (board[i] == ' ') {
@@ -76,16 +73,29 @@ public class GameLogic {
         return true; // semua cell penuh
     }
 
-    // =========================================================
-    // COMPUTER MOVE
-    // Pilih cell kosong secara random, return index cell-nya.
-    // =========================================================
+    //TODO
     public int computerMove() {
-        int index;
-        do {
-            index = random.nextInt(9); // random 0-8
-        } while (board[index] != ' '); // ulangi sampai dapat cell kosong
-        return index;
+        // Kumpulkan semua index yang masih kosong
+        ArrayList<Integer> emptyCells = new ArrayList<Integer>();
+        for (int i = 0; i < board.length; i++) {
+            if (board[i] == ' ') {
+                emptyCells.add(i);
+            }
+        }
+ 
+        // Tidak ada cell kosong
+        if (emptyCells.isEmpty()) {
+            return -1;
+        }
+ 
+        // Pilih random dari cell yang kosong saja
+        int randomPick = random.nextInt(emptyCells.size());
+        int chosenIndex = emptyCells.get(randomPick);
+ 
+        // Catat move komputer ke board
+        board[chosenIndex] = 'O';
+ 
+        return chosenIndex;
     }
 
     public char[] getBoard() {
