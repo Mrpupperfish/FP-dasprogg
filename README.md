@@ -107,7 +107,8 @@ private static final String PASSWORD = ""; // fill with your MySQL password
 
 ## Screenshots
 
-![alt text](image.png)
+<img width="1066" height="583" alt="Screenshot 2026-06-25 095331" src="https://github.com/user-attachments/assets/9af70e06-20cb-4f30-bf5e-e85a3af39fd1" />
+
 
 ---
 
