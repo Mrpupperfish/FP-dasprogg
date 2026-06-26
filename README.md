@@ -108,6 +108,11 @@ private static final String PASSWORD = ""; // fill with your MySQL password
 ## Screenshots
 
 <img width="1066" height="583" alt="Screenshot 2026-06-25 095331" src="https://github.com/user-attachments/assets/9af70e06-20cb-4f30-bf5e-e85a3af39fd1" />
+<img width="928" height="493" alt="image" src="https://github.com/user-attachments/assets/5c4faadb-c702-4e2b-8bd8-c02ee8ee1f21" />
+<img width="866" height="478" alt="image" src="https://github.com/user-attachments/assets/f9633f9f-3cf6-401b-84c0-c1db687e2756" />
+<img width="434" height="305" alt="image" src="https://github.com/user-attachments/assets/cbde00a9-4455-4b58-b943-3128131e03c9" />
+<img width="682" height="347" alt="image" src="https://github.com/user-attachments/assets/b01a8114-3392-4044-870a-3d9e712fc047" />
+
 
 
 ---
