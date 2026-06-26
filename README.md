@@ -114,8 +114,9 @@ private static final String PASSWORD = ""; // fill with your MySQL password
 
 ## GitHub Link
 
-[Your GitHub Repository URL]
+https://github.com/Mrpupperfish/FP-dasprogg/tree/main
 
 ## YouTube Link
 
-[Your YouTube Video URL]
+https://youtu.be/C9ESj8pJ3ro
+
